@@ -50,19 +50,25 @@ W_{perf}(t_i) = \min \left( \frac{S_1(t_i)}{S_1(0)}, \frac{S_2(t_i)}{S_2(0)} \ri
 $$
 
 **Early Redemption (Autocall):**
+
 If $W_{perf}(t_i) \ge \text{Autocall Barrier}$, the product matures early. The payoff is:
+
 $$
 \text{Payoff} = \text{Nominal} \times (1 + \text{Coupon} \times i)
 $$
 
 **Maturity - Capital Protection:**
+
 If no autocall occurs and $W_{perf}(T) \ge \text{Knock-In Barrier}$ at maturity, the capital is protected:
+
 $$
 \text{Payoff} = \text{Nominal} \times (1 + \text{Coupon} \times T)
 $$
 
 **Maturity - Capital Loss:**
+
 If no autocall occurs and $W_{perf}(T) < \text{Knock-In Barrier}$ at maturity, capital protection is lost:
+
 $$
 \text{Payoff} = \text{Nominal} \times W_{perf}(T)
 $$
@@ -106,6 +112,8 @@ Line chart overlaying 50 random Monte Carlo paths of the Worst-Of performance ag
 ---
 
 ## Architecture
+
+```text
 streamlit (Python)
 │
 autocallable_worst_of.py
@@ -115,6 +123,7 @@ autocallable_worst_of.py
 ├── Sidebar parameter controls
 ├── Matplotlib figure rendering
 └── Streamlit metrics & charts grid
+```
 
 System properties:
 - Python backend, Streamlit frontend
