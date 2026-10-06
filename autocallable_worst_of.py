@@ -152,9 +152,9 @@ c4.metric("Expected Annual Return", f"{(np.mean(payoffs)/nominal)**(1/T) - 1:.2%
 st.divider()
 
 # Graphiques d'analyse
-col_chart1, col_chart2 = st.columns(2)
+col_left, col_mid, col_right = st.columns([1, 2, 1])
 
-with col_chart1:
+with col_mid:
     st.subheader("Exit Scenarios Distribution")
     # Tri logique des statuts pour le graphique
     sorted_keys = [f"Autocall Year {i}" for i in range(1, int(T)+1)] + ["Maturity - Protected", "Maturity - Capital Loss"]
@@ -170,17 +170,6 @@ with col_chart1:
         if p > 0:
             ax.text(i, p + 2, f"{p:.1f}%", ha='center', fontsize=9, fontweight='bold')
     st.pyplot(fig)
-
-with col_chart2:
-    st.subheader("Payoff Distribution at Maturity")
-    fig2, ax2 = plt.subplots(figsize=(6, 4))
-    ax2.hist(payoffs, bins=50, color='#8a2be2', edgecolor='black', alpha=0.7)
-    ax2.axvline(nominal, color='black', linestyle='dashed', linewidth=1.5, label="Nominal (100%)")
-    ax2.axvline(np.mean(payoffs), color='orange', linestyle='dashed', linewidth=2, label=f"Mean ({np.mean(payoffs):.1f})")
-    ax2.set_xlabel("Payoff (% of Nominal)")
-    ax2.set_ylabel("Frequency (Number of paths)")
-    ax2.legend()
-    st.pyplot(fig2)
 
 st.divider()
 

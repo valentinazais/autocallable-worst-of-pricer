@@ -100,9 +100,6 @@ $$
 ### Exit Scenarios Distribution
 Bar chart showing the probability of each outcome (Autocall by year, Capital Protection, or Capital Loss).
 
-### Payoff Distribution at Maturity
-Histogram of the exact cash flows returned to the investor across all simulated paths.
-
 ### Sample Paths Visualization
 Line chart overlaying 50 random Monte Carlo paths of the Worst-Of performance against the Autocall and Knock-In barriers.
 
