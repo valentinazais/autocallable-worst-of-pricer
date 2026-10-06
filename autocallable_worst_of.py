@@ -175,7 +175,6 @@ st.divider()
 
 # Tracé des trajectoires
 st.subheader("Sample Paths Visualization (Worst-Of Performance)")
-st.caption("Worst-Of performance evolution for a sample of 50 random paths.")
 
 fig3, ax3 = plt.subplots(figsize=(10, 4.5))
 time_axis = np.linspace(0, T, wo_perf.shape[1])
